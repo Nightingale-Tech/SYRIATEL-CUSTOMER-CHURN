@@ -46,7 +46,7 @@ International Plan: Customers with an international plan have a relatively highe
 
 Voice Mail Plan: Customers with a voice mail plan have a lower churn rate compared to those without one.
 
-Distribution of Numerical Features
+### Distribution of Numerical Features
 
 ![alt text](<images/distibution of Numerical Features.png>)
 #### Intepretations
@@ -69,7 +69,7 @@ This correlation heatmap shows how strongly each variable relates to others.
 
 ##  5. Statistics
 
-5.3 Hypothesis Testing
+### 5.3 Hypothesis Testing
 
 T-test – Difference in Means
 
@@ -145,30 +145,27 @@ The **voice mail plan** acts as a proxy for service engagement, and **night call
 
 ##  7. Findings & Recommendations
 
-- **High churn likelihood** observed among:
+ **High churn likelihood** observed among:
   - Users with an **international plan**
 
  **frequent service calls**
-  - Users with **higher day-time charges**
+- Users with **higher day-time charges**
 - Customers with a **voice mail plan** tend to churn less.
 
-- **Recommendation**:
+## Recommendation**:
 
 **Target International Callers**  
-   Identify users with high `total intl calls` or `intl charge` and proactively offer:
-   - Customized international plan
+   Identify users with high `total intl calls` or `intl charge` and proactively offer customized international plan
 
-** Promote Voice Mail Plan Adoption**  
-   Customers without a voice mail plan are at higher risk. Actions:
-   - Offer voice mail as part of bundled services
+**Promote Voice Mail Plan Adoption**  
+   Customers without a voice mail plan are at higher risk. Actions: Offer voice mail as part of bundled services
 
-** Review Pricing for Key Periods**  
+**Review Pricing for Key Periods**  
    Night and international usage costs strongly relate to churn.
    - Audit pricing policies
 
- ** Monitor Usage Pattern Shifts**  
-   Drops in call volume (across day, eve, night) can signal churn.
-   - Set up alerts for rapid behavior changes  
+ **Monitor Usage Pattern Shifts**  
+   Drops in call volume (across day, eve, night) can signal churn,set up alerts for rapid behavior changes  
 
 
 ##  8. Conclusion
