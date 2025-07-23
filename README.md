@@ -37,7 +37,7 @@ The services or customer segments that has the highest churn rates
 
 ## 3. Exploratory Data Analysis (EDA)
 
-- churn distribution by categorical features
+-  churn distribution by categorical features
 ![alt text](<images/churn distribution by categorical features.png>)
 Interpretation
 
@@ -45,7 +45,7 @@ International Plan: Customers with an international plan have a relatively highe
 
 Voice Mail Plan: Customers with a voice mail plan have a lower churn rate compared to those without one.
 
-- Numerical Feature Distributions
+Distribution of Numerical Features
 ![alt text](<images/distibution of Numerical Features.png>)
 #### Intepretations
 
@@ -53,25 +53,35 @@ Voice Mail Plan: Customers with a voice mail plan have a lower churn rate compar
 - **Skewed Features**: `number vmail messages`, `total intl calls`, and `customer service calls` are highly skewed. These features may offer strong predictive power for churn.
 - **Actionable Insight**: Features like high `customer service calls` are worth investigating in churn analysis as they may correlate with customer dissatisfaction.
 
-- Correlation heatmap.
+Correlation Heatmap
 ![alt text](<images/correlation heat map.png>)
 This correlation heatmap shows how strongly each variable relates to others.
 
-**Churn**: Is positively correlated with international plan, total day charge, and customer service calls. It is negatively correlated with voice mail plan.
+*Churn*: Is positively correlated with international plan, total day charge, and customer service calls. It is negatively correlated with voice mail plan.
 
-**Highly Correlated Pairs**: Strong positive correlations exist between total day minutes and total day **charge, total eve minutes and total eve charge, and total night minutes and total night charge. This is expected as charges are usually derived from minutes used.
+*Highly Correlated Pairs*: Strong positive correlations exist between total day minutes and total day **charge, total eve minutes and total eve charge, and total night minutes and total night charge. This is expected as charges are usually derived from minutes used.
 
-**Low Correlations**: Most other variable pairs show very weak correlations (values close to 0.00).
+*Low Correlations*: Most other variable pairs show very weak correlations (values close to 0.00).
 ---
 
-##  5. Statistics
-
-- **T-Tests**, **ANOVA**, and **Chi-Square** tests performed to evaluate significance of variables.
+####  5. Statistics
 - Significant churn predictors validated statistically.
+5.3 Hypothesis Testing
+
+T-test – Difference in Means
+Test if churned and non-churned customers differ significantly in features like total day minutes.
+![alt text](<images/Total day images by churn.png>)
+
+- t-statistic: -12.08  
+- p-value: < 0.0001
+
+There is a **statistically significant difference** in the average `total day minutes` between customers who churned and those who did not.  
+The negative t-statistic suggests that churned customers tend to have higher daytime usage, which may indicate increased engagement before leaving, possibly due to unresolved service issues or dissatisfaction.
+
 
 ---
 
-##  6. Machine Learning
+####  6. Machine Learning
 
 ### Models Used:
 - Logistic Regression
