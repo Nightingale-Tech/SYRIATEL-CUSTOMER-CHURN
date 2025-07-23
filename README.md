@@ -13,11 +13,12 @@ A machine learning project that predicts customer churn for SyriaTel, a telecom 
 - **Problem**: SyriaTel is facing significant customer churn, which directly impacts revenue and market share.
 - **Objective**: Build a binary classification model to predict churn (`Yes` or `No`) and identify key drivers of customer departure.
 - **Key Questions** I aim to address this:
-What are the factors that are most strongly associated with churn.
 
-Predict churn using early 
+1. What are the factors that are most strongly associated with churn.
 
-The services or customer segments that has the highest churn rates
+2. Predict churn using early 
+
+3. The services or customer segments that has the highest churn rates
 
 - **Impact**: Insights can be used by the retention and marketing teams to reduce churn.
 
