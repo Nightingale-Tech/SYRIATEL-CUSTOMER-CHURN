@@ -14,7 +14,9 @@ A machine learning project that predicts customer churn for SyriaTel, a telecom 
 - **Objective**: Build a binary classification model to predict churn (`Yes` or `No`) and identify key drivers of customer departure.
 - **Key Questions** I aim to address this:
 What are the factors that are most strongly associated with churn.
-Predict churn using early data
+
+Predict churn using early 
+
 The services or customer segments that has the highest churn rates
 
 - **Impact**: Insights can be used by the retention and marketing teams to reduce churn.
@@ -114,22 +116,18 @@ We compare the performance of the three classification models applied:
 
 #### Summary
 
-- **XGBoost** delivers the best overall performance in terms of **AUC**, **F1-score**, and **recall**, making it the most reliable model for identifying churners.
-- **Random Forest** performs very well and offers easier model inspection compared to XGBoost.
-- **Logistic Regression** is less accurate but **highly interpretable** and fast, making it an excellent baseline or complementary model in explainable ML contexts.
+- **XGBoost** consistently outperforms the other models in all key metrics.
+- It achieves the highest **accuracy**, correctly predicting 94.1% of churn outcomes.
 
+- With a **precision of 85%**, it minimizes false positives, ensuring reliable churn alerts.
 
-- **ROC & PR Curves**
+- It also has the highest **recall (78.2%)**, meaning it captures more actual churners than the others.
 
-![alt text](<images/distibution of Numerical Features.png>)
+- The **F1 Score** of 81.4% reflects a strong balance between precision and recall.
 
-The ROC curve shows that:
+- AUC (0.95) confirms that XGBoost is the most effective model at distinguishing between churners and non-churners.
 
-XG Boost (AUC = 0.94) performs the best at distinguishing churners from non-churners.
-
-Random Forest (AUC = 0.92) also performs very well, slightly below XG Boost.
-
-Logistic Regression (AUC = 0.82) performs reasonably but is less effective than the tree-based models.
+Therefore, **XGBoost is the best-performing model** and recommended for deploment
 
 - **Feature Importance** visualizations
 
@@ -140,8 +138,6 @@ Summary Insight
 International usage—measured by **call frequency**, **charges**, and **plan availability**—is the dominant churn signal. 
 
 The **voice mail plan** acts as a proxy for service engagement, and **night call charges** add additional risk of churn.
-
-
 
 ##  7. Findings & Recommendations
 
