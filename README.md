@@ -37,7 +37,8 @@ The services or customer segments that has the highest churn rates
 
 ## 3. Exploratory Data Analysis (EDA)
 
--  churn distribution by categorical features
+###  churn distribution by categorical features
+
 ![alt text](<images/churn distribution by categorical features.png>)
 Interpretation
 
@@ -46,6 +47,7 @@ International Plan: Customers with an international plan have a relatively highe
 Voice Mail Plan: Customers with a voice mail plan have a lower churn rate compared to those without one.
 
 Distribution of Numerical Features
+
 ![alt text](<images/distibution of Numerical Features.png>)
 #### Intepretations
 
@@ -53,7 +55,8 @@ Distribution of Numerical Features
 - **Skewed Features**: `number vmail messages`, `total intl calls`, and `customer service calls` are highly skewed. These features may offer strong predictive power for churn.
 - **Actionable Insight**: Features like high `customer service calls` are worth investigating in churn analysis as they may correlate with customer dissatisfaction.
 
-Correlation Heatmap
+#### Correlation Heatmap
+
 ![alt text](<images/correlation heat map.png>)
 This correlation heatmap shows how strongly each variable relates to others.
 
@@ -62,24 +65,25 @@ This correlation heatmap shows how strongly each variable relates to others.
 *Highly Correlated Pairs*: Strong positive correlations exist between total day minutes and total day **charge, total eve minutes and total eve charge, and total night minutes and total night charge. This is expected as charges are usually derived from minutes used.
 
 *Low Correlations*: Most other variable pairs show very weak correlations (values close to 0.00).
----
 
-####  5. Statistics
-- Significant churn predictors validated statistically.
+
+##  5. Statistics
+
 5.3 Hypothesis Testing
 
 T-test – Difference in Means
+
 Test if churned and non-churned customers differ significantly in features like total day minutes.
+
 ![alt text](<images/Total day images by churn.png>)
 
 - t-statistic: -12.08  
 - p-value: < 0.0001
 
-There is a **statistically significant difference** in the average `total day minutes` between customers who churned and those who did not.  
+There is a **statistically significant difference** in the average total day minutes between customers who churned and those who did not.  
+
 The negative t-statistic suggests that churned customers tend to have higher daytime usage, which may indicate increased engagement before leaving, possibly due to unresolved service issues or dissatisfaction.
 
-
----
 
 ####  6. Machine Learning
 
@@ -90,9 +94,52 @@ The negative t-statistic suggests that churned customers tend to have higher day
 
 ### Evaluation Metrics:
 - **Accuracy**, **ROC AUC**, **Precision**, **Recall**, **F1-Score**
-- **Confusion Matrices**
+
+#### Detailed Model Comparison
+
+We compare the performance of the three classification models applied:
+
+ #### Logistic Regression, Random Forest, and XGBoost.
+---
+### Performance Metrics
+
+| **Metric**           | **Logistic Regression** | **Random Forest** | **XGBoost**       |
+|----------------------|--------------------------|--------------------|--------------------|
+| **Accuracy**         | 89.7%                    | 93.6%              | 94.1%              |
+| **Precision**        | 72.2%                    | 83.3%              | 85.0%              |
+| **Recall**           | 66.0%                    | 72.6%              | 78.2%              |
+| **F1 Score**         | 69.0%                    | 77.6%              | 81.4%              |
+| **AUC (ROC)**        | 0.81                     | 0.93               | 0.95               |
+
+
+#### Summary
+
+- **XGBoost** delivers the best overall performance in terms of **AUC**, **F1-score**, and **recall**, making it the most reliable model for identifying churners.
+- **Random Forest** performs very well and offers easier model inspection compared to XGBoost.
+- **Logistic Regression** is less accurate but **highly interpretable** and fast, making it an excellent baseline or complementary model in explainable ML contexts.
+
+
 - **ROC & PR Curves**
+
+![alt text](<images/distibution of Numerical Features.png>)
+
+The ROC curve shows that:
+
+XG Boost (AUC = 0.94) performs the best at distinguishing churners from non-churners.
+
+Random Forest (AUC = 0.92) also performs very well, slightly below XG Boost.
+
+Logistic Regression (AUC = 0.82) performs reasonably but is less effective than the tree-based models.
+
 - **Feature Importance** visualizations
+
+![alt text](<images/Top 15 important Features.png>)
+
+Summary Insight
+
+International usage—measured by **call frequency**, **charges**, and **plan availability**—is the dominant churn signal. 
+
+The **voice mail plan** acts as a proxy for service engagement, and **night call charges** add additional risk of churn.
 
 
 
@@ -100,12 +147,29 @@ The negative t-statistic suggests that churned customers tend to have higher day
 
 - **High churn likelihood** observed among:
   - Users with an **international plan**
-  - Users making **frequent service calls**
+
+ **frequent service calls**
   - Users with **higher day-time charges**
 - Customers with a **voice mail plan** tend to churn less.
-- **Recommendation**: Promote voicemail plan, reduce service issues, and target at-risk users for retention.
 
----
+- **Recommendation**:
+
+**Target International Callers**  
+   Identify users with high `total intl calls` or `intl charge` and proactively offer:
+   - Customized international plan
+
+** Promote Voice Mail Plan Adoption**  
+   Customers without a voice mail plan are at higher risk. Actions:
+   - Offer voice mail as part of bundled services
+
+** Review Pricing for Key Periods**  
+   Night and international usage costs strongly relate to churn.
+   - Audit pricing policies
+
+ ** Monitor Usage Pattern Shifts**  
+   Drops in call volume (across day, eve, night) can signal churn.
+   - Set up alerts for rapid behavior changes  
+
 
 ##  8. Conclusion
 
@@ -128,5 +192,5 @@ For questions or collaboration:
 
 GitHub: Nightingale-Tech
 
-Email: nigtingalemib@gmail.com
+Email: nightingalemib@gmail.com
 
